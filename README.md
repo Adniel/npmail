@@ -21,9 +21,9 @@ Installation
 ------------
  * Install python 2.7
  * Create a filter chain specifying ´python.exe npmail.py´
- * Create a new event matching the ´<event>´ root tag
+ * Create a new event matching the '<event>' root tag
  * Set up a MailOUT event with a variable attachment and use
-   the ´<attachment>´ element content as its path 
+   the '<attachment>' element content as its path 
  * Create a SMTP for MailOUT connector
  * Configure event with similar settings for attachment name,
    sending email addres, subject et c as the preconfigured mail event
