@@ -6,7 +6,6 @@ __date__ = "$2013-04-26 15:18:00$"
 
 import sys
 import os
-from time import sleep
 
 # Debug print time in file
 import logging
@@ -37,7 +36,10 @@ if __name__ == '__main__':
             f = open(filepath, 'wb')
             f.write(b''.join(source))
             f.close()
-            sleep(SLEEP)
+            if SLEEP > 0:
+                logging.info("Sleeping (ZzZzz) for %s seconds. Sch..." % SLEEP)
+                from time import sleep
+                sleep(SLEEP)
         except Exception, e:
             logging.exception("Exception: %s" % e)
             sys.stdout.write("ERROR STORING ATTACHMENT IN " + outpath)
