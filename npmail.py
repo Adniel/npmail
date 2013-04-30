@@ -40,6 +40,7 @@ if __name__ == '__main__':
                 logging.info("Sleeping (ZzZzz) for %s seconds. Sch..." % SLEEP)
                 from time import sleep
                 sleep(SLEEP)
+                logging.info("Wide awake again :)")
         except Exception, e:
             logging.exception("Exception: %s" % e)
             sys.stdout.write("ERROR STORING ATTACHMENT IN " + outpath)
