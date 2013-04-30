@@ -12,7 +12,7 @@ import logging
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 
 OUTPATH = '../out/'
-SLEEP = 10.2
+SLEEP = 0.2
 
 if __name__ == '__main__':
     """
@@ -32,13 +32,14 @@ if __name__ == '__main__':
         filepath = os.path.join(OUTPATH, filename)
 
         try:
-            logging.info("Storing file %s" % filepath)
+            logging.info("Got %s bytes in stdin stream" % len(source))
+            logging.info("Storing stream in file %s" % filepath)
             f = open(filepath, 'wb')
             try:
                 f.write(b''.join(source))
             finally:
                 f.close()
-                
+
             if SLEEP > 0:
                 logging.info("Sleeping (ZzZzz) for %s seconds. Sch..." % SLEEP)
                 from time import sleep
