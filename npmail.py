@@ -6,12 +6,14 @@ __date__ = "$2013-04-26 15:18:00$"
 
 import sys
 import os
+from time import sleep
 
 # Debug print time in file
 import logging
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 
-OUTPATH = './out/'
+OUTPATH = '../out/'
+SLEEP = 0.2
 
 if __name__ == '__main__':
     """
@@ -31,14 +33,15 @@ if __name__ == '__main__':
         filepath = os.path.join(OUTPATH, filename)
 
         try:
+            logging.info("Storing file %s" % filepath)
             f = open(filepath, 'wb')
             f.write(b''.join(source))
             f.close()
+            sleep(SLEEP)
         except Exception, e:
             logging.exception("Exception: %s" % e)
             sys.stdout.write("ERROR STORING ATTACHMENT IN " + outpath)
         else:
-            logging.info("Storing file %s" % filepath)
             logging.info("Sending event to StreamServe")
             eventdata = "\n".join(["<event>", "<attachment>",
                                    filepath, "</attachment>",
