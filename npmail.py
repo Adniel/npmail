@@ -39,6 +39,7 @@ if __name__ == '__main__':
                 f.write(b''.join(source))
             finally:
                 f.close()
+                logging.info("Closed file handle with file size %s bytes" % os.path.getsize(filepath))
 
             if SLEEP > 0:
                 logging.info("Sleeping (ZzZzz) for %s seconds. Sch..." % SLEEP)
